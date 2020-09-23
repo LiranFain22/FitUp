@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/NAV_BTN_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/NAV_BTN_userStatus"
+        android:icon="@drawable/ic_baseline_account_box_24"
+        android:title="Status"/>
+
+    <item
+        android:id="@+id/NAV_BTN_favorite"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="Favorite"/>
+
+</menu>

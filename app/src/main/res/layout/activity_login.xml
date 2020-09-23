@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fitup.LoginActivity">
+
+    <ImageView
+        android:id="@+id/LOGIN_IMG_iconApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/ic_fitup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/LOGIN_LBL_loginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="LOGIN"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LOGIN_IMG_iconApp" />
+
+    <EditText
+        android:id="@+id/LOGIN_EDT_emailText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="14dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LOGIN_LBL_loginTitle" />
+
+    <EditText
+        android:id="@+id/LOGIN_EDT_passwordText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="14dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LOGIN_EDT_emailText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/LOGIN_BTN_loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="Login"
+        app:cornerRadius="100dp"
+        android:backgroundTint="#4077D6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LOGIN_EDT_passwordText"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

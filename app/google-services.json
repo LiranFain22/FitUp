@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "682499940327",
+    "firebase_url": "https://fitup-15c6b.firebaseio.com",
+    "project_id": "fitup-15c6b",
+    "storage_bucket": "fitup-15c6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682499940327:android:3b1dfa4da376fd5a75e742",
+        "android_client_info": {
+          "package_name": "com.example.fitup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682499940327-04l8is0qhfrfli50146d22tot1g1cp83.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNF3tw7EOgrX0qgxkyPu6xl_In3poLGKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682499940327-04l8is0qhfrfli50146d22tot1g1cp83.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
