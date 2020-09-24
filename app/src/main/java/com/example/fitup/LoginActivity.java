@@ -34,6 +34,10 @@ public class LoginActivity extends AppCompatActivity {
 
         findView();
 
+        setLoginListener();
+    }
+
+    public void setLoginListener(){
         LOGIN_BTN_loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         i.putExtra("email", currentUser.getEmail());
         startActivity(i);
+        finish();
     }
 
     private void findView() {
