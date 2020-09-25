@@ -1,7 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_Home">
 
 
-
+    <fragment
+        android:id="@+id/fragment_Home"
+        android:name="com.example.fitup.Fragment_Home"
+        android:label="Fragment_Home" >
+        <action
+            android:id="@+id/action_fragment_Home_to_fragment_ScheduleWorkouts"
+            app:destination="@id/fragment_ScheduleWorkouts" />
+        <action
+            android:id="@+id/action_fragment_Home_to_fragment_Choose_Random"
+            app:destination="@id/fragment_Choose_Random" />
+        <action
+            android:id="@+id/action_fragment_Home_to_fragment_Discover"
+            app:destination="@id/fragment_Discover" />
+        <action
+            android:id="@+id/action_fragment_Home_to_fragment_WaterUp"
+            app:destination="@id/fragment_WaterUp" />
+        <action
+            android:id="@+id/action_fragment_Home_to_fragment_UserStatus"
+            app:destination="@id/fragment_UserStatus" />
+        <action
+            android:id="@+id/action_fragment_Home_to_fragment_Favorite"
+            app:destination="@id/fragment_Favorite" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_ScheduleWorkouts"
+        android:name="com.example.fitup.Fragment_ScheduleWorkouts"
+        android:label="fragment__schedule_workouts"
+        tools:layout="@layout/fragment__schedule_workouts" />
+    <fragment
+        android:id="@+id/fragment_Choose_Random"
+        android:name="com.example.fitup.Fragment_Choose_Random"
+        android:label="fragment__choose__random"
+        tools:layout="@layout/fragment__choose__random" />
+    <fragment
+        android:id="@+id/fragment_Discover"
+        android:name="com.example.fitup.Fragment_Discover"
+        android:label="fragment__discover"
+        tools:layout="@layout/fragment__discover" />
+    <fragment
+        android:id="@+id/fragment_WaterUp"
+        android:name="com.example.fitup.Fragment_WaterUp"
+        android:label="fragment__water_up"
+        tools:layout="@layout/fragment__water_up" />
+    <fragment
+        android:id="@+id/fragment_UserStatus"
+        android:name="com.example.fitup.Fragment_UserStatus"
+        android:label="Fragment_UserStatus" />
+    <fragment
+        android:id="@+id/fragment_Favorite"
+        android:name="com.example.fitup.Fragment_Favorite"
+        android:label="Fragment_Favorite" />
 </navigation>

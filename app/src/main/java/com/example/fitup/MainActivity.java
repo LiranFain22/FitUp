@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private BottomNavigationView Main_bottom_navigation;
     private Toolbar Main_toolbar;
     @Override
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new Fragment_Favorite();
                     break;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_container, selectedFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, selectedFragment).commit();
             return true;
         }
     };
@@ -77,6 +78,6 @@ public class MainActivity extends AppCompatActivity {
         Main_bottom_navigation = findViewById(R.id.Main_bottom_navigation);
         Main_bottom_navigation.setOnNavigationItemSelectedListener(navListener);
         Main_toolbar = findViewById(R.id.Main_toolbar);
-        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_container, new Fragment_Home()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new Fragment_Home()).commit();
     }
 }
