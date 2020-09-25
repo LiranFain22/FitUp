@@ -19,6 +19,126 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <RelativeLayout
+        android:id="@+id/Fragment_home_LAY__scheduleWorkouts"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/Fragment_home_userTitle"
+        android:background="@drawable/background_ic_shape_circle">
+
+        <ImageView
+            android:id="@+id/Fragment_home_scheduleWorkouts"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_calendar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/Fragment_home_scheduleWorkouts"
+            android:layout_alignParentBottom="true"
+            android:text="schedule Workouts"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Fragment_home_LAY__chooseRandom"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:padding="20dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Fragment_home_userTitle"
+        android:background="@drawable/background_ic_shape_circle">
+
+        <ImageView
+            android:id="@+id/Fragment_home_chooseRandom"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_chooserandom" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Choose Random"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Fragment_home_LAY__discover"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:padding="20dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Fragment_home_LAY__scheduleWorkouts"
+        android:background="@drawable/background_ic_shape_circle">
+
+        <ImageView
+            android:id="@+id/Fragment_home_discover"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_discover" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Discover"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Fragment_home_LAY__waterUp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:padding="20dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Fragment_home_LAY__chooseRandom"
+        android:background="@drawable/background_ic_shape_circle">
+
+        <ImageView
+            android:id="@+id/Fragment_home_waterUp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_waterup" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="WaterUp"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
