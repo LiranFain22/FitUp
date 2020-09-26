@@ -1,26 +1,38 @@
 package com.example.fitup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import static androidx.navigation.ui.NavigationUI.onNavDestinationSelected;
 
 public class MainActivity extends AppCompatActivity {
 
 
     private BottomNavigationView Main_bottom_navigation;
     private Toolbar Main_toolbar;
+    private NavController navController = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,28 +68,26 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment selectedFragment = null;
 
             switch (item.getItemId()){
                 case R.id.NAV_BTN_home:
-                    selectedFragment = new Fragment_Home();
+                    navController.navigate(R.id.fragment_Home);
                     break;
                 case R.id.NAV_BTN_userStatus:
-                    selectedFragment = new Fragment_UserStatus();
+                    navController.navigate(R.id.fragment_UserStatus);
                     break;
                 case R.id.NAV_BTN_favorite:
-                    selectedFragment = new Fragment_Favorite();
+                    navController.navigate(R.id.fragment_Favorite);
                     break;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, selectedFragment).commit();
             return true;
         }
     };
 
     private void findView() {
+        navController = Navigation.findNavController(this,R.id.nav_host_fragment);
         Main_bottom_navigation = findViewById(R.id.Main_bottom_navigation);
         Main_bottom_navigation.setOnNavigationItemSelectedListener(navListener);
         Main_toolbar = findViewById(R.id.Main_toolbar);
-        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new Fragment_Home()).commit();
     }
 }
