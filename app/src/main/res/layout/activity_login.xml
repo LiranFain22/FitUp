@@ -59,6 +59,10 @@
         android:backgroundTint="#4077D6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LOGIN_EDT_passwordText"/>
+        app:layout_constraintTop_toBottomOf="@+id/LOGIN_EDT_passwordText"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

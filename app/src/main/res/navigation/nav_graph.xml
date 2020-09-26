@@ -12,22 +12,46 @@
         android:label="Fragment_Home" >
         <action
             android:id="@+id/action_fragment_Home_to_fragment_ScheduleWorkouts"
-            app:destination="@id/fragment_ScheduleWorkouts" />
+            app:destination="@id/fragment_ScheduleWorkouts"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_fragment_Home_to_fragment_Choose_Random"
-            app:destination="@id/fragment_Choose_Random" />
+            app:destination="@id/fragment_Choose_Random"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_fragment_Home_to_fragment_Discover"
-            app:destination="@id/fragment_Discover" />
+            app:destination="@id/fragment_Discover"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_fragment_Home_to_fragment_WaterUp"
-            app:destination="@id/fragment_WaterUp" />
+            app:destination="@id/fragment_WaterUp"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_fragment_Home_to_fragment_UserStatus"
-            app:destination="@id/fragment_UserStatus" />
+            app:destination="@id/fragment_UserStatus"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_fragment_Home_to_fragment_Favorite"
-            app:destination="@id/fragment_Favorite" />
+            app:destination="@id/fragment_Favorite"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/fragment_ScheduleWorkouts"
