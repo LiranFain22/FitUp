@@ -1,0 +1,1386 @@
+start
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+60
+Alternate Foot
+40
+Rest
+20
+Freestyle jump
+40
+Rest
+20
+Alternate Foot
+40
+Rest
+20
+Freestyle jump
+30
+Rest
+50
+Basic jump
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Basic jump
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+start
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+60
+Freestyle jump
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+60
+Freestyle jump
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+60
+Alternate Foot
+20
+Rest
+10
+Basic jump
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+10
+Basic jump
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+10
+Basic jump
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+10
+start
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+60
+Alternate Foot
+30
+Rest
+30
+Squat jumps
+30
+Rest
+30
+Alternate Foot
+30
+Rest
+30
+Bodyweight squats
+30
+Rest
+30
+Alternate Foot
+30
+Rest
+60
+Alternate Foot
+30
+Rest
+10
+Freestyle jump
+30
+Rest
+30
+Alternate Foot
+30
+Rest
+10
+Freestyle jump
+30
+Rest
+30
+Alternate Foot
+30
+Rest
+10
+Freestyle jump
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+60
+Alternate Foot
+30
+Rest
+30
+Squat thrusts
+30
+Rest
+30
+Alternate Foot
+30
+Rest
+30
+Mountain Climbers
+30
+Rest
+30
+Alternate Foot
+30
+Rest
+30
+start
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+60
+Basic jump
+30
+Rest
+30
+Squat holds
+30
+Rest
+30
+Basic jump
+30
+Rest
+30
+Squat holds
+30
+Rest
+30
+Basic jump
+30
+Rest
+60
+Basic jump
+30
+Rest
+20
+Basic jump
+30
+Rest
+20
+Basic jump
+30
+Rest
+20
+Basic jump
+30
+Rest
+20
+Basic jump
+30
+Rest
+50
+Basic jump
+30
+Elbow planks
+30
+Rest
+30
+Basic jump
+30
+Rest
+30
+Elbow planks
+30
+Rest
+30
+Basic jump
+30
+Rest
+30
+start
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+60
+Criss-Crosses
+20
+Rest
+10
+Burpees
+30
+Rest
+30
+Double unders
+20
+Rest
+10
+Burpees
+30
+Rest
+30
+Criss-Crosses
+20
+Rest
+10
+Burpees
+30
+Rest
+30
+Double unders
+20
+Rest
+40
+Freestyle jumps
+300
+start
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+30
+Freestyle jump
+30
+Rest
+30
+Boxer steps
+30
+Rest
+60
+Alternate Foot
+20
+Rest
+10
+Burpees
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+10
+Squat holds
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+10
+Burpees
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+40
+Basic jump
+30
+Rest
+10
+Elbow planks
+30
+Rest
+30
+Basic jump
+30
+Rest
+10
+Push-ups
+30
+Rest
+30
+Basic jump
+30
+Rest
+10
+Elbow planks
+30
+Rest
+30
+Basic jump
+30
+Rest
+40
+Alternate Foot
+20
+Rest
+10
+Squat jumps
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+10
+Squat holds
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+10
+Squat jumps
+30
+Rest
+30
+Alternate Foot
+20
+Rest
+10
+start
+Step jacks
+30
+Rest
+10
+No rope jump rope
+30
+Rest
+10
+Squats with bicycle crunches
+30
+Rest
+10
+Sit up jab cross
+30
+Rest
+10
+Opposite leg arm lifts
+30
+Rest
+10
+Alternating lunges
+30
+Rest
+30
+Squats with bicycle crunches
+30
+Rest
+10
+Sit up jab cross
+30
+Rest
+10
+Opposite leg arm lifts
+30
+Rest
+10
+Alternating lunges
+30
+Rest
+30
+Burpees
+30
+Rest
+10
+Starfish crunches
+30
+Rest
+10
+Supermans
+30
+Rest
+10
+Tricep dips
+30
+Rest
+30
+Burpees
+30
+Rest
+10
+Starfish crunches
+30
+Rest
+10
+Supermans
+30
+Rest
+10
+Tricep dips
+30
+Rest
+10
+Lying spinal twist stretch (Left)
+30
+Lying spinal twist stretch (Right)
+30
+start
+Drop squats
+30
+Rest
+10
+Front lunges with twist
+30
+Rest
+10
+Burpees
+30
+Rest
+10
+Lay down push-ups
+30
+Rest
+30
+Drop squats
+30
+Rest
+10
+Front lunges with twist
+30
+Rest
+10
+Burpees
+30
+Rest
+10
+Lay down push-ups
+30
+Rest
+30
+Walk-In-Out
+30
+Rest
+10
+Push-ups with rotation
+30
+Rest
+10
+Spiderman plank
+30
+Rest
+10
+Squat jumps
+30
+Rest
+30
+Walk-In-Out
+30
+Rest
+10
+Push-ups with rotation
+30
+Rest
+10
+Spiderman plank
+30
+Rest
+10
+Squat jumps
+30
+start
+Drop squats
+30
+Rest
+10
+Front lunges with twist
+30
+Rest
+10
+Burpees
+30
+Rest
+10
+Lay down push-ups
+30
+Rest
+30
+Drop squats
+30
+Rest
+10
+Front lunges with twist
+30
+Rest
+10
+Burpees
+30
+Rest
+10
+Lay down push-ups
+30
+Rest
+30
+Walk-In-Out
+30
+Rest
+10
+Push-ups with rotation
+30
+Rest
+10
+Spiderman plank
+30
+Squat jumps
+30
+Rest
+30
+Walk-In-Out
+30
+Push-ups with rotation
+30
+Rest
+10
+Spiderman plank
+30
+Rest
+10
+Squat jumps
+30
+Rest
+10
+start
+Shuffle squats
+30
+Rest
+10
+Burpees
+30
+Rest
+10
+Hand release push-ups
+30
+Rest
+10
+Back lunges with knee ups(Left)
+30
+Back lunges with knee ups(Right)
+30
+High knees running In place
+30
+Rest
+30
+Shuffle squats
+30
+Rest
+10
+Burpees
+30
+Rest
+10
+Hand release push-ups
+30
+Rest
+10
+Back lunges with knee ups(Left)
+30
+Back lunges with knee ups(Right)
+30
+Rest
+10
+High knees running In place
+30
+Rest
+30
+Knee push-ups
+30
+Rest
+10
+Spiderman plank
+30
+Rest
+10
+Squat jumps
+30
+Rest
+10
+Walk-In-Out
+30
+Rest
+30
+Knee push-ups
+30
+Rest
+10
+Spiderman plank
+30
+Squat jumps
+30
+Walk-In-Out
+30
+start
+Jumping jacks
+30
+Rest
+10
+No rope jump rope
+30
+Rest
+10
+Butt kicks
+30
+Rest
+10
+Opposite leg arm reaches
+30
+Rest
+10
+Hamstring sweeps
+30
+Rest
+10
+Lunge & twist stretch (Left)
+30
+Lunge & twist stretch (Right)
+30
+High knees running in place
+30
+Rest
+10
+Shuffle squats
+30
+Rest
+10
+Supermans
+30
+Rest
+10
+Plank jacks
+30
+Rest
+10
+Alternating front and side kicks
+30
+Rest
+10
+Quick feet in and outs
+30
+Rest
+10
+Knee push-ups
+30
+Rest
+10
+Crunch punches
+30
+Rest
+10
+Back lunges with knee ups (Left)
+30
+Back lunges with knee ups (Right)
+30
+Rest
+10
+Superman pulldowns
+30
+Rest
+10
+Lay down push-ups
+30
+Rest
+10
+Opposite hand toe jacks
+30
+Rest
+10
+Squat jumps
+30
+Rest
+10
+Leg raises
+30
+Rest
+10
+Plank with opposite toe touches
+30
+Rest
+10
+Alternating stance jumps
+30
+Cat camel stretch
+30
+start
+Standing twists
+30
+Rest
+10
+Side steps with toe tap
+30
+Rest
+10
+Kick backs
+30
+Rest
+10
+High kicks
+30
+Rest
+10
+Jump twists
+30
+Rest
+10
+Hamstring sweeps
+30
+Rest
+10
+Squat to squat jumps
+30
+Rest
+10
+knee push-ups
+30
+Rest
+30
+Jumping lunges into jump squats
+30
+Rest
+10
+High knees running in place
+30
+Rest
+10
+Lateral hops
+30
+Rest
+30
+Abductor squat jumps
+30
+Rest
+10
+Back lunges with knee ups(Left)
+30
+Back lunges with knee ups(Right)
+30
+Back lunges with knee ups(Left)
+30
+Back lunges with knee ups(Right)
+30
+Side shuffle with floor touch
+30
+Rest
+30
+Vertical leg crunches
+30
+Rest
+10
+Crunch kicks
+30
+Rest
+10
+Single leg v-ups
+30
+Rest
+10
+Reverse crunches
+30
+Rest
+10
+Supermans
+30
+Rest
+10
+Prone opposite arm leg lifts
+30
+Rest
+10
+Opposite leg arm lifts
+30
+Rest
+10
+Full plank
+30
+Rest
+10
+Side plank with hip lifts(Left)
+30
+Side plank with hip lifts(Right)
+30
+Rest
+30
+Squats with side punches
+30
+Rest
+10
+Up straight punches
+30
+Rest
+10
+High knees running in place
+30
+Rest
+10
+Child pose with push-ups
+30
+Rest
+10
+Plank with leg lifts
+30
+Rest
+10
+Plank with opposite toe touches
+30
+Rest
+10
+Reverse plank
+30
+Rest
+10
+Walking burpees
+30
+Rest
+10
+Lunge & twist stretch(Left)
+30
+Lunge & twist stretch(Right)
+30
+Front thigh stretch(Left)
+30
+Front thigh stretch(Right)
+30
+Cooldown stretch
+30
+start
+Supermans
+30
+Rest
+10
+Opposite leg arm lifts
+30
+Rest
+10
+Hip bridge hold
+30
+Rest
+10
+V-sit hold
+30
+Rest
+10
+Plank
+30
+Rest
+10
+Rocking plank
+30
+Rest
+10
+Plank with leg lifts
+30
+Rest
+10
+Cobra pose
+30
+Rest
+10
+Single leg v-ups
+30
+Rest
+10
+Up and down plank
+30
+Rest
+10
+Bicycle crunches
+30
+Rest
+10
+Spiderman plank
+30
+Rest
+10
+Single leg v-ups
+30
+Rest
+10
+Up and down plank
+30
+Rest
+10
+Bicycle crunches
+30
+Rest
+10
+Spiderman plank
+30
+Rest
+10
+Cat camel stretch
+30
+Rest
+10
+Reclined bound angle pose
+30
+Rest
+10
+start
+Big arm circles
+30
+Rest
+10
+Standing hip circles
+30
+Rest
+10
+Wall plank with arm lifts
+30
+Rest
+10
+Wall plank with leg lifts
+30
+Rest
+10
+Full plank
+30
+Rest
+10
+Knee side plank(Left)
+30
+Knee side plank(Right)
+30
+Plank
+30
+Rest
+30
+Full plank
+30
+Rest
+10
+Knee side plank(Left)
+30
+Knee side plank(Right)
+30
+Plank
+30
+Rest
+10
+Reclined bound angle pose
+30
+Rest
+10
+Cobra pose
+30
+Rest
+10
+start
+High knees running in place
+45
+Rest
+10
+Jumping jacks
+45
+Rest
+10
+Standing bicycle crunches
+45
+Rest
+10
+Rocking Plank
+45
+Rest
+10
+Plank with hip twists
+45
+Rest
+10
+Up and down plank
+45
+Rest
+10
+Side plank with hip lifts(Left)
+45
+Side plank with hip lifts(Right)
+45
+Russian twists
+45
+Rest
+10
+Knee grab sit ups
+45
+Rest
+10
+Vertical leg crunches
+45
+Rest
+10
+Reverse crunches
+45
+Rest
+10
+Pigeon stretch(Left)
+45
+Pigeon stretch(Right)
+45
+start
+Plank
+30
+Rest
+10
+Plank jacks
+30
+Rest
+10
+Plank with leg lifts
+30
+Rest
+10
+Plank with hip twists
+30
+Rest
+10
+Plank with shoulder taps
+30
+Rest
+10
+Side plank(Left)
+30
+Side plank(Right)
+30
+Rest
+30
+Full plank
+30
+Rest”
+10
+Spiderman plank
+30
+Rest
+10
+Rocking plank
+30
+Rest
+10
+Up and down plank
+30
+Rest
+10
+Side plank with knee crunches(Left)
+30
+Side plank with knee crunches(Right)
+30
+rest
+30
+Full plank
+30
+Rest
+10
+Mountain climbers
+30
+Rest
+10
+Side plank with hip lifts(Left)
+30
+Side plank with hip lifts(Right)
+30
+Knee side plank(Left)
+30
+Knee side plank(Right)
+30
+Plank
+30
+Rest
+10
+start
+Abdominal crunches
+45
+Rest
+10
+Heel drops
+45
+Rest
+10
+Straight leg toe touch
+45
+Rest
+10
+Flutter kicks
+45
+Rest
+10
+Bicycle kicks
+45
+Rest
+10
+Leg scissors
+45
+Rest
+10
+Jack knives
+45
+Rest
+10
+Crunch kicks
+45
+Rest
+10
+Starfish crunches
+45
+Rest
+10
+Bicycle kicks
+45
+Rest
+30
+Side plank(Left)
+45
+Side plank with knee crunches(Left)
+45
+Side plank with hip lifts(Left)
+45
+Side plank with leg raise(Left)
+45
+Side plank(Left)
+45
+Side plank with knee crunches(Left)
+45
+Side plank with hip lifts(Left)
+45
+Side plank with leg raise(Left)
+45
+Rest
+10
+T-plank rotation
+45
+Rest
+10
+Mountain climbers
+45
+start
+High knee twists
+30
+Rest
+10
+Hip thrusts
+30
+Rest
+10
+Glute bridge abduction pulses
+30
+Rest
+10
+Knee touch abdominal crunches
+30
+Rest
+10
+Heel touches
+30
+Rest
+10
+Startfish crunches
+30
+Rest
+10
+Reverse crunches
+30
+Rest
+10
+Russian twists
+30
+Rest
+10
+Crunch kicks
+30
+Rest
+10
+Jack knives
+30
+Rest
+10
+Hip thrusts
+30
+Rest
+10
+Glute brudge abduction pulses
+30
+Rest
+10
+Knee touch absominal crunches
+30
+Rest
+10
+Heel touches
+30
+Rest
+10
+Startfish crunches
+30
+Rest
+10
+Reverse crunches
+30
+Rest
+10
+Russian twists
+30
+Rest
+10
+Crunch kicks
+30
+Rest
+10
+Jack knives
+30
+Rest
+10
+Oblique crunches(Left)
+30
+Oblique crunches(Right)
+30
+Hip thrusts
+30
+Rest
+10
+Glute brudge abduction pulses
+30
+Rest
+10
+Vertical leg crunches
+30
+Rest
+10
+Bicycle crunches
+30
+Rest
+10
+Single leg v-ups
+30
+Rest
+10
+V-sit hold
+30
+Rest
+10
+Supermans
+30
+Rest
+10
+Mermaids with twist (Left)
+30
+Mermaids with twist (Right)
+30
+Side plank with knee crunches(Left)
+30
+Side plank with knee crunches(Right)
+30
