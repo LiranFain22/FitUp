@@ -19,7 +19,7 @@ public class WorkoutsParser {
 
     public WorkoutsParser(Activity activity) { }
 
-    public static void parse(AssetManager assets){
+    public static ArrayList<Workout> parse(AssetManager assets){
         ArrayList<Workout> workoutArrayList = new ArrayList<>();
         BufferedReader reader = null;
         try {
@@ -30,7 +30,7 @@ public class WorkoutsParser {
                 if(mline.equals("start")) {
                     if(workout != null)
                         workoutArrayList.add(workout);
-                    workout = new Workout();
+                    //workout = new Workout(new ArrayList<Workout.Exercise>(),"");
                 }
                 else{
                     String name = mline;
@@ -44,6 +44,7 @@ public class WorkoutsParser {
             }
             workoutArrayList.add(workout);
             reader.close();
+            return workoutArrayList;
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -55,32 +56,6 @@ public class WorkoutsParser {
                 }
             }
         }
-//        try {
-//            InputStream inputStream = assets.open("workouts.txt");
-//            int size = inputStream.available();
-//            byte[] buffer = new byte[size];
-//            inputStream.read(buffer);
-//            String data = new String(buffer);
-//            String[] splitted = data.split("\"|:|,|\n");
-//            Workout workout = null;
-//            for(int i = 0; i < splitted.length-1; i = i + 2){
-//                String splittedStr = splitted[i].replaceAll("”|“","");
-//                if(splittedStr.equals("start")){
-//                    i--;
-//                    if(workout != null){
-//                        workoutArrayList.add(workout);
-//                    }
-//                    workout = new Workout();
-//                } else {
-//                    workout.addExercise(splittedStr,Integer.parseInt(splitted[i+1].replaceAll("\\s+|”|“","")));
-//                    Log.d("pttt",splitted[i]);
-//                }
-//            }
-//            workoutArrayList.add(workout);
-//
-//            inputStream.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        return new ArrayList<>();
     }
 }

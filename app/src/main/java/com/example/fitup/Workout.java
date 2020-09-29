@@ -1,13 +1,23 @@
 package com.example.fitup;
 
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Workout {
-    private List<Exercise> exercises;
+    public List<Exercise> exercises ;
+    public String Type;
+    public String Name;
+    public String Level;
 
-    public Workout() {
-        this.exercises = new ArrayList<>();
+    public Workout(){}
+
+    public Workout(List<Exercise> exercises, String Type, String Name, String Level) {
+        this.exercises = exercises;
+        this.Type = Type;
+        this.Name = Name;
+        this.Level = Level;
     }
 
     public List<Exercise> getExercises(){
@@ -18,20 +28,10 @@ public class Workout {
         this.exercises.add(new Exercise(name,timer));
     }
 
-    private class Exercise {
-        private String name;
-        private int timer;
+//    public String getType(){
+//        return Type;
+//    }
 
-        public Exercise(String name, int timer) {
-            this.name = name;
-            this.timer = timer;
-        }
 
-        private String getName(){
-            return this.name;
-        }
-        private int getTimer(){
-            return this.timer;
-        }
-    }
+
 }

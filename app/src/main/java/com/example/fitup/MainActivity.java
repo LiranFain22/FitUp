@@ -13,23 +13,32 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static androidx.navigation.ui.NavigationUI.onNavDestinationSelected;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final String TAG = "MainActivity";
+    private FirebaseFirestore database = FirebaseFirestore.getInstance();
 
     private BottomNavigationView Main_bottom_navigation;
     private Toolbar Main_toolbar;
@@ -39,12 +48,65 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        WorkoutsParser.parse(getAssets());
-
         findView();
-
         setSupportActionBar(Main_toolbar);
     }
+
+//    /**
+//     * This method is to SAVING Workouts in Firebase🔥🔥🔥
+//     */
+//    public void saveWorkout(final ArrayList<Workout> workoutArrayList){
+//        //DocumentReference workoutRef = database.collection("Workouts").document("workout" + i);
+//        CollectionReference workoutRef = database.collection("workouts");
+//        final ArrayList<String> levels = new ArrayList<>();
+//        levels.add("Beginner");
+//        levels.add("Beginner");
+//        levels.add("Advanced");
+//        levels.add("Advanced");
+//        levels.add("Expert");
+//        levels.add("Expert");
+//        levels.add("Beginner");
+//        levels.add("Beginner");
+//        levels.add("Advanced");
+//        levels.add("Advanced");
+//        levels.add("Expert");
+//        levels.add("Expert");
+//        levels.add("Beginner");
+//        levels.add("Beginner");
+//        levels.add("Advanced");
+//        levels.add("Advanced");
+//        levels.add("Expert");
+//        levels.add("Expert");
+//
+//        final ArrayList<String> types = new ArrayList<>();
+//        types.add("Jumping Rope");
+//        types.add("Jumping Rope");
+//        types.add("Jumping Rope");
+//        types.add("Jumping Rope");
+//        types.add("Jumping Rope");
+//        types.add("Jumping Rope");
+//        types.add("HIIT");
+//        types.add("HIIT");
+//        types.add("HIIT");
+//        types.add("HIIT");
+//        types.add("HIIT");
+//        types.add("HIIT");
+//        types.add("ABS");
+//        types.add("ABS");
+//        types.add("ABS");
+//        types.add("ABS");
+//        types.add("ABS");
+//        types.add("ABS");
+//        for(int i = 0; i < workoutArrayList.size(); i++) {
+//            final int COUNTER = i;
+//            workoutRef.add(workoutArrayList.get(i)).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                @Override
+//                public void onSuccess(DocumentReference documentReference) {
+//                    documentReference.update("Level", levels.get(COUNTER), "Type" , types.get(COUNTER));
+//                }
+//            });
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
