@@ -2,8 +2,8 @@ package com.example.fitup;
 
 public class Exercise {
 
-    public String name;
-    public int timer;
+    private String name;
+    private int timer;
 
     public Exercise(){}
 
@@ -12,5 +12,11 @@ public class Exercise {
         this.timer = timer;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public int getTimer() {
+        return timer;
+    }
 }
