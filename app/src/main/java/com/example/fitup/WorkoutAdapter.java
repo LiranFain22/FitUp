@@ -13,15 +13,36 @@ import java.util.ArrayList;
 
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutViewHolder> {
     private ArrayList<Workout> workoutItemArrayList;
+    private  OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnClickListener(OnItemClickListener listener){
+        this.mListener = listener;
+    }
 
     public static class WorkoutViewHolder extends RecyclerView.ViewHolder{
         public ImageView Fragment_IMG_discover;
         public TextView Fragment_LBL_workoutName;
 
-        public WorkoutViewHolder(@NonNull View itemView) {
+        public WorkoutViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             Fragment_IMG_discover = itemView.findViewById(R.id.Fragment_IMG_discover);
             Fragment_LBL_workoutName = itemView.findViewById(R.id.Fragment_LBL_workoutName);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -33,7 +54,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutV
     @Override
     public WorkoutViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.workout_item, parent, false);
-        WorkoutViewHolder workoutViewHolder = new WorkoutViewHolder(v);
+        WorkoutViewHolder workoutViewHolder = new WorkoutViewHolder(v, mListener);
         return workoutViewHolder;
     }
 

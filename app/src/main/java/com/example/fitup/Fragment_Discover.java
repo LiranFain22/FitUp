@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,8 +24,10 @@ import java.util.ArrayList;
 
 public class Fragment_Discover extends Fragment {
 
+    private NavController navController = null;
+
     private RecyclerView Fragment_RCV_discover;
-    private  RecyclerView.Adapter mAdapter;
+    private  WorkoutAdapter mAdapter;
     private  RecyclerView.LayoutManager mLayoutManager;
     private FirebaseFirestore database;
 
@@ -35,10 +39,12 @@ public class Fragment_Discover extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         database = FirebaseFirestore.getInstance();
+
+        navController = Navigation.findNavController(view);
 
         final ArrayList<Workout> workoutItemArrayList = new ArrayList<>();
         database.collection("workouts").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -59,5 +65,15 @@ public class Fragment_Discover extends Fragment {
 
         Fragment_RCV_discover.setLayoutManager(mLayoutManager);
         Fragment_RCV_discover.setAdapter(mAdapter);
+
+        mAdapter.setOnClickListener(new WorkoutAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Bundle bundle = new Bundle();
+                String workoutName = workoutItemArrayList.get(position).Name;
+                bundle.putString("workout_name", workoutName);
+                navController.navigate(R.id.action_fragment_Discover_to_fragment_workout, bundle);
+            }
+        });
     }
 }

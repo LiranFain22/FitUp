@@ -1,5 +1,6 @@
 package com.example.fitup;
 
+import android.content.Intent;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,9 +29,6 @@ public class Workout {
         this.exercises.add(new Exercise(name,timer));
     }
 
-//    public String getType(){
-//        return Type;
-//    }
 
 
 

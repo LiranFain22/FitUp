@@ -67,7 +67,15 @@
         android:id="@+id/fragment_Discover"
         android:name="com.example.fitup.Fragment_Discover"
         android:label="fragment__discover"
-        tools:layout="@layout/fragment__discover" />
+        tools:layout="@layout/fragment__discover" >
+        <action
+            android:id="@+id/action_fragment_Discover_to_fragment_workout"
+            app:destination="@id/fragment_workout"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
     <fragment
         android:id="@+id/fragment_WaterUp"
         android:name="com.example.fitup.Fragment_WaterUp"
@@ -81,4 +89,13 @@
         android:id="@+id/fragment_Favorite"
         android:name="com.example.fitup.Fragment_Favorite"
         android:label="Fragment_Favorite" />
+    <fragment
+        android:id="@+id/fragment_workout"
+        android:name="com.example.fitup.Fragment_workout"
+        android:label="fragment_workout"
+        tools:layout="@layout/fragment_workout" >
+        <argument
+        android:name="workout_name"
+        app:argType="string"/>
+    </fragment>
 </navigation>
