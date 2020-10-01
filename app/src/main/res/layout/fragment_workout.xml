@@ -10,11 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="3" >
+        android:weightSum="5" >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical">
 
@@ -28,12 +28,43 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center|top"
                 android:text="workout-Title"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.androchef.happytimer.countdowntimer.CircularCountDownView
+                android:id="@+id/Fragment_TIMER_workout"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Fragment_LBL_workout_title"
+                app:layout_constraintVertical_bias="0.0"
+                app:stroke_background_color="@color/colorPrimaryDark"
+                app:stroke_background_thickness="31dp"
+                app:stroke_foreground_color="@color/colorLightBlue"
+                app:stroke_foreground_thickness="40dp"
+                app:timer_text_color="@color/colorLightBlue"
+                app:timer_text_format="MINUTE_SECOND"
+                app:timer_text_isBold="true"
+                app:timer_text_shown="true"
+                app:timer_text_size="30sp"
+                app:timer_type="COUNT_DOWN" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Fragment_BTN_start_Workout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Fragment_TIMER_workout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -41,7 +72,7 @@
             android:id="@+id/Fragment_RCV_workout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:padding="4dp"
             android:scrollbars="vertical"
             android:background="@android:color/darker_gray"/>

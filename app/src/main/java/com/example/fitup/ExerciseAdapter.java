@@ -1,5 +1,6 @@
 package com.example.fitup;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,21 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     public static  class ExerciseViewHolder extends RecyclerView.ViewHolder{
         public TextView Fragment_LBL_excersice_excersiceName;
         public TextView Fragment_LBL_excersice_excersiceTimer;
+        private View itemView;
 
         public ExerciseViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.itemView = itemView;
             Fragment_LBL_excersice_excersiceName = itemView.findViewById(R.id.Fragment_LBL_excersice_excersiceName);
             Fragment_LBL_excersice_excersiceTimer = itemView.findViewById(R.id.Fragment_LBL_excersice_excersiceTimer);
+        }
+
+        public void setBackground(boolean isFocused){
+            if(isFocused){
+                itemView.setBackgroundColor(Color.YELLOW);
+            } else {
+                itemView.setBackgroundColor(Color.GRAY);
+            }
         }
     }
 
@@ -39,7 +50,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     @Override
     public void onBindViewHolder(@NonNull ExerciseViewHolder holder, int position) {
         Exercise currentItem = exerciseArrayList.get(position);
-
+        holder.setBackground(currentItem.isFocused());
         holder.Fragment_LBL_excersice_excersiceName.setText(currentItem.getName());
         holder.Fragment_LBL_excersice_excersiceTimer.setText(String.valueOf(currentItem.getTimer()) + " sec");
     }
