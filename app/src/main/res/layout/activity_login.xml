@@ -65,4 +65,13 @@
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"/>
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/LOGIN_BTN_googleSignInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LOGIN_BTN_loginButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

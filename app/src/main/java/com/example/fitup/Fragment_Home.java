@@ -15,6 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Fragment_Home extends Fragment implements View.OnClickListener {
 
     private NavController navController = null;
@@ -46,8 +51,15 @@ public class Fragment_Home extends Fragment implements View.OnClickListener {
 
         findViews(view);
 
+        changeTitleToUserName(Fragment_home_userTitle);
+
         clickListener();
 
+    }
+
+    private void changeTitleToUserName(TextView fragment_home_userTitle) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        fragment_home_userTitle.setText("hi " + user.getDisplayName());
     }
 
     private void clickListener() {
