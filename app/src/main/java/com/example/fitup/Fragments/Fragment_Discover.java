@@ -14,10 +14,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitup.JavaClasses.MyUser;
 import com.example.fitup.R;
 import com.example.fitup.JavaClasses.Workout;
 import com.example.fitup.Adapters.WorkoutAdapter;
+import com.firebase.ui.auth.data.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -49,16 +56,31 @@ public class Fragment_Discover extends Fragment {
         navController = Navigation.findNavController(view);
 
         final ArrayList<Workout> workoutItemArrayList = new ArrayList<>();
-        database.collection("workouts").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                for(QueryDocumentSnapshot documentReference:queryDocumentSnapshots){
-                    Workout workout = documentReference.toObject(Workout.class);
-                    workoutItemArrayList.add(workout);
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                        MyUser myUser = documentSnapshot.toObject(MyUser.class);
+                        database.collection("workouts").whereEqualTo("Level", myUser.getLevel()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                for (DocumentSnapshot documentReference : task.getResult()) {
+                                    Workout workout = documentReference.toObject(Workout.class);
+                                    workoutItemArrayList.add(workout);
+                                }
+                                mAdapter.notifyDataSetChanged();
+                            }
+
+
+                        });
+                    }
                 }
-                mAdapter.notifyDataSetChanged();
             }
         });
+
 
         Fragment_RCV_discover = view.findViewById(R.id.Fragment_RCV_discover);
         Fragment_RCV_discover.setHasFixedSize(true);
