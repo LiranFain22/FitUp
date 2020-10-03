@@ -1,4 +1,4 @@
-package com.example.fitup;
+package com.example.fitup.Fragments;
 
 import android.os.Bundle;
 
@@ -14,8 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitup.R;
+import com.example.fitup.JavaClasses.Workout;
+import com.example.fitup.Adapters.WorkoutAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -27,7 +29,7 @@ public class Fragment_Discover extends Fragment {
     private NavController navController = null;
 
     private RecyclerView Fragment_RCV_discover;
-    private  WorkoutAdapter mAdapter;
+    private WorkoutAdapter mAdapter;
     private  RecyclerView.LayoutManager mLayoutManager;
     private FirebaseFirestore database;
 

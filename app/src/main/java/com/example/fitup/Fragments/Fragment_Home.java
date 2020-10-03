@@ -1,4 +1,4 @@
-package com.example.fitup;
+package com.example.fitup.Fragments;
 
 import android.os.Bundle;
 import android.text.Layout;
@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.fitup.R;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.auth.FirebaseAuth;
@@ -59,7 +60,7 @@ public class Fragment_Home extends Fragment implements View.OnClickListener {
 
     private void changeTitleToUserName(TextView fragment_home_userTitle) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        fragment_home_userTitle.setText("hi " + user.getDisplayName());
+        fragment_home_userTitle.setText("Hi " + user.getDisplayName());
     }
 
     private void clickListener() {

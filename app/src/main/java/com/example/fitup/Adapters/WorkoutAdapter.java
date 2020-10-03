@@ -1,4 +1,4 @@
-package com.example.fitup;
+package com.example.fitup.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.fitup.JavaClasses.Workout;
+import com.example.fitup.R;
 
 import java.util.ArrayList;
 

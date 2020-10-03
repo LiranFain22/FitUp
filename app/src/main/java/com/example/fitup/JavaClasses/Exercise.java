@@ -1,4 +1,4 @@
-package com.example.fitup;
+package com.example.fitup.JavaClasses;
 
 public class Exercise {
 

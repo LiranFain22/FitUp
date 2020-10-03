@@ -1,4 +1,4 @@
-package com.example.fitup;
+package com.example.fitup.Activites;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,28 +13,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
+import com.example.fitup.JavaClasses.MyUser;
+import com.example.fitup.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInApi;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Date;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private FirebaseFirestore database = FirebaseFirestore.getInstance();
     private Button LOGIN_BTN_loginButton;
     private EditText LOGIN_EDT_emailText;
     private EditText LOGIN_EDT_passwordText;
@@ -64,12 +65,6 @@ public class LoginActivity extends AppCompatActivity {
         if (currentUser != null) {
             updateUI(currentUser);
         }
-        // Check for existing Google Sign In account, if the user is already signed in
-        // the GoogleSignInAccount will be non-null.
-//        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-//        if (account != null) {
-//            updateUI(account);
-//        }
     }
 
     public void updateUI(FirebaseUser currentUser) {
@@ -89,6 +84,10 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("pttt", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+                            MyUser myUser = new MyUser(user.getDisplayName(), user.getUid(),"Beginner",0,currentDateTimeString);
+                            database.collection("users").add(myUser);
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -176,8 +175,9 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             firebaseAuthWithGoogle(account.getIdToken()) ;
-            // Signed in successfully, show authenticated UI.
-           // updateUI(account);
+
+
+
         } catch (ApiException e) {
             e.printStackTrace();
         }

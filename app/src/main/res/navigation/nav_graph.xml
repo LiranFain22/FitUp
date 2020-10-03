@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment_Home"
-        android:name="com.example.fitup.Fragment_Home"
+        android:name="com.example.fitup.Fragments.Fragment_Home"
         android:label="Fragment_Home" >
         <action
             android:id="@+id/action_fragment_Home_to_fragment_ScheduleWorkouts"
@@ -55,17 +55,17 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_ScheduleWorkouts"
-        android:name="com.example.fitup.Fragment_ScheduleWorkouts"
+        android:name="com.example.fitup.Fragments.Fragment_ScheduleWorkouts"
         android:label="fragment__schedule_workouts"
         tools:layout="@layout/fragment__schedule_workouts" />
     <fragment
         android:id="@+id/fragment_Choose_Random"
-        android:name="com.example.fitup.Fragment_Choose_Random"
+        android:name="com.example.fitup.Fragments.Fragment_Choose_Random"
         android:label="fragment__choose__random"
         tools:layout="@layout/fragment__choose__random" />
     <fragment
         android:id="@+id/fragment_Discover"
-        android:name="com.example.fitup.Fragment_Discover"
+        android:name="com.example.fitup.Fragments.Fragment_Discover"
         android:label="fragment__discover"
         tools:layout="@layout/fragment__discover" >
         <action
@@ -78,20 +78,20 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_WaterUp"
-        android:name="com.example.fitup.Fragment_WaterUp"
+        android:name="com.example.fitup.Fragments.Fragment_WaterUp"
         android:label="fragment__water_up"
         tools:layout="@layout/fragment__water_up" />
     <fragment
         android:id="@+id/fragment_UserStatus"
-        android:name="com.example.fitup.Fragment_UserStatus"
+        android:name="com.example.fitup.Fragments.Fragment_UserStatus"
         android:label="Fragment_UserStatus" />
     <fragment
         android:id="@+id/fragment_Favorite"
-        android:name="com.example.fitup.Fragment_Favorite"
+        android:name="com.example.fitup.Fragments.Fragment_Favorite"
         android:label="Fragment_Favorite" />
     <fragment
         android:id="@+id/fragment_workout"
-        android:name="com.example.fitup.Fragment_workout"
+        android:name="com.example.fitup.Fragments.Fragment_workout"
         android:label="fragment_workout"
         tools:layout="@layout/fragment_workout" >
         <argument

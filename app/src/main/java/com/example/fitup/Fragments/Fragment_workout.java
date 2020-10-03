@@ -1,7 +1,8 @@
-package com.example.fitup;
+package com.example.fitup.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,15 +16,23 @@ import android.widget.TextView;
 
 import com.androchef.happytimer.countdowntimer.CircularCountDownView;
 import com.androchef.happytimer.countdowntimer.HappyTimer;
+import com.example.fitup.JavaClasses.Exercise;
+import com.example.fitup.Adapters.ExerciseAdapter;
+import com.example.fitup.JavaClasses.MyUser;
+import com.example.fitup.R;
+import com.example.fitup.JavaClasses.Workout;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Timer;
 
 public class Fragment_workout extends Fragment {
 
@@ -70,6 +79,7 @@ public class Fragment_workout extends Fragment {
                     Fragment_BTN_start_Workout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            updateTotalWorkouts();
                             startTimer();
                         }
                     });
@@ -80,6 +90,53 @@ public class Fragment_workout extends Fragment {
 
 
         return  view;
+    }
+
+    private void updateLevelOfUser() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(DocumentSnapshot documentSnapshot: task.getResult()){
+                        MyUser myUser = documentSnapshot.toObject(MyUser.class);
+
+                        int totalWorkouts = myUser.getTotalNumOfWorkouts();
+
+                        if(totalWorkouts >= 20)
+                            myUser.setLevel("Expert");
+                        else if(totalWorkouts >= 10)
+                            myUser.setLevel("Advanced");
+
+                        database.collection("users").document(documentSnapshot.getId()).set(myUser);
+                    }
+                }
+            }
+        });
+    }
+
+    private void updateTotalWorkouts() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(DocumentSnapshot documentSnapshot: task.getResult()){
+                        MyUser myUser = documentSnapshot.toObject(MyUser.class);
+
+                        int totalWorkouts = myUser.getTotalNumOfWorkouts() + 1;
+                        myUser.setTotalNumOfWorkouts(totalWorkouts);
+                        database.collection("users").document(documentSnapshot.getId()).set(myUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                updateLevelOfUser();
+                            }
+                        });
+
+                    }
+                }
+            }
+        });
     }
 
     private void startTimer() {
@@ -192,5 +249,15 @@ public class Fragment_workout extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        if(textToSpeech != null){
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
+        super.onSaveInstanceState(outState);
+
     }
 }

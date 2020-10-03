@@ -1,19 +1,13 @@
-package com.example.fitup;
+package com.example.fitup.JavaClasses;
 
 import android.app.Activity;
 import android.content.res.AssetManager;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class WorkoutsParser {
 
