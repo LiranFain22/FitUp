@@ -62,7 +62,11 @@
         android:id="@+id/fragment_Choose_Random"
         android:name="com.example.fitup.Fragments.Fragment_Choose_Random"
         android:label="fragment__choose__random"
-        tools:layout="@layout/fragment__choose__random" />
+        tools:layout="@layout/fragment__choose__random" >
+        <action
+            android:id="@+id/action_fragment_Choose_Random_to_fragment_workout"
+            app:destination="@id/fragment_workout" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_Discover"
         android:name="com.example.fitup.Fragments.Fragment_Discover"
