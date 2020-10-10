@@ -2,12 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Favorite Fragment"
-        android:textSize="30sp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Fragment_RCV_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:padding="4dp"
+        android:scrollbars="vertical" />
+
 
 
 </RelativeLayout>

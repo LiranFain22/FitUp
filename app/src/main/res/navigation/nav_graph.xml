@@ -92,7 +92,11 @@
     <fragment
         android:id="@+id/fragment_Favorite"
         android:name="com.example.fitup.Fragments.Fragment_Favorite"
-        android:label="Fragment_Favorite" />
+        android:label="Fragment_Favorite" >
+        <action
+            android:id="@+id/action_fragment_Favorite_to_fragment_workout"
+            app:destination="@id/fragment_workout" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_workout"
         android:name="com.example.fitup.Fragments.Fragment_workout"

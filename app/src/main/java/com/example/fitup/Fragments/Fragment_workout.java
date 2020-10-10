@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androchef.happytimer.countdowntimer.CircularCountDownView;
 import com.androchef.happytimer.countdowntimer.HappyTimer;
@@ -27,6 +29,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -39,6 +42,7 @@ public class Fragment_workout extends Fragment {
     private FirebaseFirestore database;
 
     private TextView Fragment_LBL_workout_title;
+    private ImageView Fragment_IMG_iconFavorite;
     private RecyclerView Fragment_RCV_workout;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -49,6 +53,8 @@ public class Fragment_workout extends Fragment {
 
     private CircularCountDownView Fragment_TIMER_workout;
     private TextToSpeech textToSpeech;
+
+    private boolean isFavoriteClicked;
 
     public Fragment_workout() {
         // Required empty public constructor
@@ -67,12 +73,20 @@ public class Fragment_workout extends Fragment {
 
         findViews(view);
 
+        initWorkout(view, workout_name);
+
+
+        return  view;
+    }
+
+    private void initWorkout(final View view, String workout_name) {
         database.collection("workouts").whereEqualTo("Name" , workout_name).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
                     Workout workout = documentSnapshot.toObject(Workout.class);
                     Fragment_workout.this.workout = workout;
+                    initIconFavorites();
                     initWorkoutRecyclerView(workout, view);
                     exerciseArrayList = (ArrayList<Exercise>) workout.getExercises();
                     Fragment_BTN_start_Workout.setVisibility(View.VISIBLE);
@@ -87,9 +101,100 @@ public class Fragment_workout extends Fragment {
                 }
             }
         });
+    }
 
+    private void initIconFavorites() {
+        setFavoritesListener();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(final DocumentSnapshot documentSnapshot: task.getResult()) {
+                        database.collection("users")
+                                .document(documentSnapshot.getId())
+                                .collection("favorites").whereEqualTo("Name", workout.Name).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if(task.isSuccessful()){
+                                    if(task.getResult().isEmpty()){
+                                        Fragment_IMG_iconFavorite.setImageResource(R.drawable.ic_favorite_notclicked);
+                                        isFavoriteClicked = false;
+                                    }else{
+                                        Fragment_IMG_iconFavorite.setImageResource(R.drawable.ic_favorite_clicked);
+                                        isFavoriteClicked = true;
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    }
 
-        return  view;
+    private void setFavoritesListener() {
+        Fragment_IMG_iconFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (isFavoriteClicked) {
+                    Fragment_IMG_iconFavorite.setImageResource(R.drawable.ic_favorite_notclicked);
+                    database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()){
+                                for(final DocumentSnapshot documentSnapshot : task.getResult()){
+                                    database.collection("users")
+                                            .document(documentSnapshot.getId())
+                                            .collection("favorites")
+                                            .whereEqualTo("Name", workout.Name).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            if(task.isSuccessful()){
+                                                for(final DocumentSnapshot documentSnapshot2 : task.getResult()){
+                                                    database.collection("users")
+                                                            .document(documentSnapshot.getId())
+                                                            .collection("favorites")
+                                                            .document(documentSnapshot2.getId()).delete();
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    Fragment_IMG_iconFavorite.setImageResource(R.drawable.ic_favorite_clicked);
+                    database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                                    database.collection("users")
+                                            .document(documentSnapshot.getId())
+                                            .collection("favorites")
+                                            .add(workout).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(getContext(), "Added to Favorites", Toast.LENGTH_SHORT).show();
+                                                isFavoriteClicked = true;
+                                            } else {
+                                                Toast.makeText(getContext(), "Failed to add to Favorites", Toast.LENGTH_SHORT).show();
+                                                Fragment_IMG_iconFavorite.setImageResource(R.drawable.ic_favorite_notclicked);
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
     }
 
     private void updateLevelOfUser() {
@@ -226,6 +331,7 @@ public class Fragment_workout extends Fragment {
     private void findViews(View view) {
         database = FirebaseFirestore.getInstance();
         Fragment_LBL_workout_title = view.findViewById(R.id.Fragment_LBL_workout_title);
+        Fragment_IMG_iconFavorite = view.findViewById(R.id.Fragment_IMG_iconFavorite);
         Fragment_TIMER_workout = view.findViewById(R.id.Fragment_TIMER_workout);
         Fragment_BTN_start_Workout = view.findViewById(R.id.Fragment_BTN_start_Workout);
         currentExercise = 0;
