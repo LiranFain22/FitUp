@@ -3,7 +3,7 @@
     package="com.example.fitup">
 
     <application
-        android:name=".FitUp"
+        android:name=".JavaClasses.FitUp"
         android:allowBackup="true"
         android:icon="@drawable/ic_fitup"
         android:label="@string/app_name"

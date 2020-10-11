@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.fitup.FitUp;
+import com.example.fitup.JavaClasses.FitUp;
 import com.example.fitup.R;
 import com.google.android.material.button.MaterialButton;
 
