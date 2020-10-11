@@ -23,7 +23,7 @@ import java.util.Locale;
 
 public class Fragment_WaterUp extends Fragment {
 
-    private static  final long START_TIME_IN_MILLIS = 600000;
+    private final long START_TIME_IN_MILLIS = 600000;
 
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
@@ -33,6 +33,10 @@ public class Fragment_WaterUp extends Fragment {
     private TextView Fragment_WaterUp_LBL_countdown;
     private MaterialButton Fragment_WaterUp_BTN_setButton;
     private MaterialButton Fragment_WaterUp_BTN_resetButton;
+
+    private MaterialButton Fragment_WaterUp_BTN_set20MinButton;
+    private MaterialButton Fragment_WaterUp_BTN_set30MinButton;
+    private MaterialButton Fragment_WaterUp_BTN_set60MinButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,14 +51,42 @@ public class Fragment_WaterUp extends Fragment {
 
         findViews(view);
 
-        setClickListenerButtonSet(view);
-        setClickListenerButtonReset(view);
+        setClickListenerButtonSet();
+        setClickListenerButtonReset();
+        setClickListenerButton_20_30_60();
 
         updateCountDownText();
 
     }
 
-    private void setClickListenerButtonSet(View view) {
+    private void setClickListenerButton_20_30_60() {
+        Fragment_WaterUp_BTN_set20MinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mTimeLeftInMillis = START_TIME_IN_MILLIS;
+                mTimeLeftInMillis *= 2;
+                updateCountDownText();
+            }
+        });
+        Fragment_WaterUp_BTN_set30MinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mTimeLeftInMillis = START_TIME_IN_MILLIS;
+                mTimeLeftInMillis *= 3;
+                updateCountDownText();
+            }
+        });
+        Fragment_WaterUp_BTN_set60MinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mTimeLeftInMillis = START_TIME_IN_MILLIS;
+                mTimeLeftInMillis *= 6;
+                updateCountDownText();
+            }
+        });
+    }
+
+    private void setClickListenerButtonSet() {
         Fragment_WaterUp_BTN_setButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,7 +99,7 @@ public class Fragment_WaterUp extends Fragment {
         });
     }
 
-    private void setClickListenerButtonReset(View view) {
+    private void setClickListenerButtonReset() {
         Fragment_WaterUp_BTN_resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,6 +130,9 @@ public class Fragment_WaterUp extends Fragment {
         mTimerRunning = true;
         Fragment_WaterUp_BTN_setButton.setText("Pause");
         Fragment_WaterUp_BTN_resetButton.setVisibility(View.INVISIBLE);
+        Fragment_WaterUp_BTN_set20MinButton.setVisibility(View.INVISIBLE);
+        Fragment_WaterUp_BTN_set30MinButton.setVisibility(View.INVISIBLE);
+        Fragment_WaterUp_BTN_set60MinButton.setVisibility(View.INVISIBLE);
     }
 
     private void pauseTimer(){
@@ -112,6 +147,9 @@ public class Fragment_WaterUp extends Fragment {
         updateCountDownText();
         Fragment_WaterUp_BTN_resetButton.setVisibility(View.INVISIBLE);
         Fragment_WaterUp_BTN_setButton.setVisibility(View.VISIBLE);
+        Fragment_WaterUp_BTN_set20MinButton.setVisibility(View.VISIBLE);
+        Fragment_WaterUp_BTN_set30MinButton.setVisibility(View.VISIBLE);
+        Fragment_WaterUp_BTN_set60MinButton.setVisibility(View.VISIBLE);
     }
 
     private void updateCountDownText(){
@@ -154,8 +192,13 @@ public class Fragment_WaterUp extends Fragment {
 
     private void findViews(View view) {
         notificationManager = NotificationManagerCompat.from(getContext());
+
         Fragment_WaterUp_BTN_setButton = view.findViewById(R.id.Fragment_WaterUp_BTN_setButton);
         Fragment_WaterUp_BTN_resetButton = view.findViewById(R.id.Fragment_WaterUp_BTN_resetButton);
+        Fragment_WaterUp_BTN_set20MinButton = view.findViewById(R.id.Fragment_WaterUp_BTN_set20MinButton);
+        Fragment_WaterUp_BTN_set30MinButton = view.findViewById(R.id.Fragment_WaterUp_BTN_set30MinButton);
+        Fragment_WaterUp_BTN_set60MinButton = view.findViewById(R.id.Fragment_WaterUp_BTN_set60MinButton);
+
         Fragment_WaterUp_LBL_countdown = view.findViewById(R.id.Fragment_WaterUp_LBL_countdown);
     }
 }

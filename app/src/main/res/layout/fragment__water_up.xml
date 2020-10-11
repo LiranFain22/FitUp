@@ -40,6 +40,35 @@
             android:visibility="invisible"
             tools:visibility="visible"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Fragment_WaterUp_BTN_set20MinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Fragment_WaterUp_BTN_setButton"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/Fragment_WaterUp_BTN_setButton"
+            android:text="20 MIN" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Fragment_WaterUp_BTN_set30MinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Fragment_WaterUp_BTN_setButton"
+            android:layout_marginTop="10dp"
+            android:layout_toStartOf="@+id/Fragment_WaterUp_BTN_set20MinButton"
+            android:text="30 MIN" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Fragment_WaterUp_BTN_set60MinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Fragment_WaterUp_BTN_setButton"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toStartOf="@+id/Fragment_WaterUp_BTN_set30MinButton"
+            android:text="60 MIN" />
+
 
     </RelativeLayout>
 
