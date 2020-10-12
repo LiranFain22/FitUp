@@ -16,12 +16,13 @@
             android:id="@+id/fragment_ScheduleWorkouts_LBL_chooseWorkoutTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="170dp"
             android:text="Choose Workout:"
             android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/fragment_ScheduleWorkouts_Spinner_chooseWorkout"
@@ -52,6 +53,17 @@
             android:text="Select Date"
             android:layout_marginTop="20dp"
             app:cornerRadius="50dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Fragment_ScheduleWorkouts_BTN_createEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Fragment_scheduleWorkouts_BTN_chooseDate"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="Create"
+            app:cornerRadius="50dp" />
+
 
 
     </RelativeLayout>

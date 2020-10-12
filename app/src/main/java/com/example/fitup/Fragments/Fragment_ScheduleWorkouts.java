@@ -2,6 +2,7 @@ package com.example.fitup.Fragments;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +47,7 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
 
     private TextView Fragment_scheduleWorkouts_LBL_chosenDate;
     private MaterialButton Fragment_scheduleWorkouts_BTN_chooseDate;
+    private MaterialButton Fragment_ScheduleWorkouts_BTN_createEvent;
     private Spinner fragment_ScheduleWorkouts_Spinner_chooseWorkout;
 
     private ArrayList<Workout> workoutArrayList;
@@ -52,6 +55,8 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
 
     private FirebaseFirestore database;
     private WorkoutAdapter mAdapter;
+
+    private String clickedWorkoutName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,6 +75,26 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
         setOnClickListenerDateButton();
 
         setOnItemSelectedListenerSpinner();
+
+        setOnClickListenerCreateEventButton();
+    }
+
+    private void setOnClickListenerCreateEventButton() {
+        Fragment_ScheduleWorkouts_BTN_createEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(fragment_ScheduleWorkouts_Spinner_chooseWorkout.getSelectedItem() != null &&
+                   !Fragment_scheduleWorkouts_LBL_chosenDate.getText().toString().isEmpty()){
+                    Intent intent = new Intent(Intent.ACTION_INSERT).setData(CalendarContract.Events.CONTENT_URI);
+                    intent.putExtra(CalendarContract.Events.TITLE, "FitUp - Workout day");
+                    intent.putExtra(CalendarContract.Events.DESCRIPTION, clickedWorkoutName);
+                    intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getContext(), "Please Select Workout and Choose Date", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setOnItemSelectedListenerSpinner() {
@@ -77,9 +102,7 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Workout clickedWorkout = (Workout) parent.getItemAtPosition(position);
-                String clickedWorkoutName = clickedWorkout.Name;
-                // TODO: 12/10/2020 here i need to 'SAVE' workout and create event in specific date in calendar
-                Toast.makeText(getContext(), clickedWorkoutName + " selected", Toast.LENGTH_SHORT).show();
+                clickedWorkoutName = clickedWorkout.Name;
             }
 
             @Override
@@ -143,6 +166,7 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
     private void findViews(View view) {
         Fragment_scheduleWorkouts_LBL_chosenDate = view.findViewById(R.id.Fragment_scheduleWorkouts_LBL_chosenDate);
         Fragment_scheduleWorkouts_BTN_chooseDate = view.findViewById(R.id.Fragment_scheduleWorkouts_BTN_chooseDate);
+        Fragment_ScheduleWorkouts_BTN_createEvent = view.findViewById(R.id.Fragment_ScheduleWorkouts_BTN_createEvent);
 
         fragment_ScheduleWorkouts_Spinner_chooseWorkout = view.findViewById(R.id.fragment_ScheduleWorkouts_Spinner_chooseWorkout);
         workoutSpinnerAdapter = new WorkoutSpinnerAdapter(getContext(), workoutArrayList);
