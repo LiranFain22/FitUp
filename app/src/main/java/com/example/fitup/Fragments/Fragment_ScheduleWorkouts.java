@@ -38,8 +38,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDialog.OnDateSetListener {
@@ -85,11 +87,28 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
             public void onClick(View view) {
                 if(fragment_ScheduleWorkouts_Spinner_chooseWorkout.getSelectedItem() != null &&
                    !Fragment_scheduleWorkouts_LBL_chosenDate.getText().toString().isEmpty()){
-                    Intent intent = new Intent(Intent.ACTION_INSERT).setData(CalendarContract.Events.CONTENT_URI);
+                    Calendar cal = Calendar.getInstance();
+                    Intent intent = new Intent(Intent.ACTION_EDIT);
+                    intent.setType("vnd.android.cursor.item/event");
+                    intent.putExtra("allDay", false);
+                    intent.putExtra("rrule", "FREQ=YEARLY");
                     intent.putExtra(CalendarContract.Events.TITLE, "FitUp - Workout day");
                     intent.putExtra(CalendarContract.Events.DESCRIPTION, clickedWorkoutName);
-                    intent.putExtra(CalendarContract.Events.ALL_DAY, true);
                     startActivity(intent);
+
+
+
+                    try {
+                        Date d = DateFormat.getDateInstance(DateFormat.FULL).parse(Fragment_scheduleWorkouts_LBL_chosenDate.getText().toString());
+                        intent.putExtra("beginTime", d.getTime());
+                        intent.putExtra("endTime", d.getTime()+60*60*1000);
+
+                        //intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                        startActivity(intent);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
                 }else{
                     Toast.makeText(getContext(), "Please Select Workout and Choose Date", Toast.LENGTH_SHORT).show();
                 }
