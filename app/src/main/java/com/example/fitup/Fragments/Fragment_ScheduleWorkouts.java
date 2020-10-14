@@ -30,6 +30,7 @@ import com.example.fitup.JavaClasses.Workout;
 import com.example.fitup.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -70,8 +71,11 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        BottomNavigationView navBar = getActivity().findViewById(R.id.Main_bottom_navigation);
+        navBar.setVisibility(View.GONE);
 
         initWorkoutList();
+
         findViews(view);
 
         setOnClickListenerDateButton();
@@ -81,6 +85,9 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
         setOnClickListenerCreateEventButton();
     }
 
+    /**
+     * this method create event in default calendar by clicking 'create' button
+     */
     private void setOnClickListenerCreateEventButton() {
         Fragment_ScheduleWorkouts_BTN_createEvent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,14 +103,10 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
                     intent.putExtra(CalendarContract.Events.DESCRIPTION, clickedWorkoutName);
                     startActivity(intent);
 
-
-
                     try {
                         Date d = DateFormat.getDateInstance(DateFormat.FULL).parse(Fragment_scheduleWorkouts_LBL_chosenDate.getText().toString());
                         intent.putExtra("beginTime", d.getTime());
                         intent.putExtra("endTime", d.getTime()+60*60*1000);
-
-                        //intent.putExtra(CalendarContract.Events.ALL_DAY, true);
                         startActivity(intent);
                     } catch (ParseException e) {
                         e.printStackTrace();
@@ -116,6 +119,9 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
         });
     }
 
+    /**
+     * this method open list of workouts in user's level
+     */
     private void setOnItemSelectedListenerSpinner() {
         fragment_ScheduleWorkouts_Spinner_chooseWorkout.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -131,6 +137,9 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
         });
     }
 
+    /**
+     * this method fetching from firebase workouts for user's level to arrayList of workouts
+     */
     private void initWorkoutList() {
         workoutArrayList = new ArrayList<>();
         database = FirebaseFirestore.getInstance();
@@ -170,8 +179,12 @@ public class Fragment_ScheduleWorkouts extends Fragment implements DatePickerDia
         String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
 
         Fragment_scheduleWorkouts_LBL_chosenDate.setText(currentDateString);
+        Fragment_ScheduleWorkouts_BTN_createEvent.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * this method pick date that the user clicked
+     */
     private void setOnClickListenerDateButton() {
         Fragment_scheduleWorkouts_BTN_chooseDate.setOnClickListener(new View.OnClickListener() {
             @Override

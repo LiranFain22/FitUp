@@ -20,6 +20,7 @@ import com.example.fitup.JavaClasses.Workout;
 import com.example.fitup.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -52,6 +53,8 @@ public class Fragment_Choose_Random extends Fragment {
 
         findViews(view);
 
+        BottomNavigationView navBar = getActivity().findViewById(R.id.Main_bottom_navigation);
+        navBar.setVisibility(View.GONE);
         Fragment_Choose_Random_ANIM.setVisibility(View.INVISIBLE);
         Fragment_Choose_Random_BTN_random.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +88,9 @@ public class Fragment_Choose_Random extends Fragment {
         });
     }
 
+    /**
+     * This method fetching randomly from firebase workout that match user's level
+     */
     private void chooseWorkout() {
         database = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

@@ -34,62 +34,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(Main_toolbar);
     }
 
-//    /**
-//     * This method is to SAVING Workouts in Firebase🔥🔥🔥
-//     */
-//    public void saveWorkout(final ArrayList<Workout> workoutArrayList){
-//        //DocumentReference workoutRef = database.collection("Workouts").document("workout" + i);
-//        CollectionReference workoutRef = database.collection("workouts");
-//        final ArrayList<String> levels = new ArrayList<>();
-//        levels.add("Beginner");
-//        levels.add("Beginner");
-//        levels.add("Advanced");
-//        levels.add("Advanced");
-//        levels.add("Expert");
-//        levels.add("Expert");
-//        levels.add("Beginner");
-//        levels.add("Beginner");
-//        levels.add("Advanced");
-//        levels.add("Advanced");
-//        levels.add("Expert");
-//        levels.add("Expert");
-//        levels.add("Beginner");
-//        levels.add("Beginner");
-//        levels.add("Advanced");
-//        levels.add("Advanced");
-//        levels.add("Expert");
-//        levels.add("Expert");
-//
-//        final ArrayList<String> types = new ArrayList<>();
-//        types.add("Jumping Rope");
-//        types.add("Jumping Rope");
-//        types.add("Jumping Rope");
-//        types.add("Jumping Rope");
-//        types.add("Jumping Rope");
-//        types.add("Jumping Rope");
-//        types.add("HIIT");
-//        types.add("HIIT");
-//        types.add("HIIT");
-//        types.add("HIIT");
-//        types.add("HIIT");
-//        types.add("HIIT");
-//        types.add("ABS");
-//        types.add("ABS");
-//        types.add("ABS");
-//        types.add("ABS");
-//        types.add("ABS");
-//        types.add("ABS");
-//        for(int i = 0; i < workoutArrayList.size(); i++) {
-//            final int COUNTER = i;
-//            workoutRef.add(workoutArrayList.get(i)).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                @Override
-//                public void onSuccess(DocumentReference documentReference) {
-//                    documentReference.update("Level", levels.get(COUNTER), "Type" , types.get(COUNTER));
-//                }
-//            });
-//        }
-//    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

@@ -28,7 +28,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Date;
 
@@ -83,12 +85,20 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("pttt", "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
-                            MyUser myUser = new MyUser(user.getDisplayName(), user.getUid(),"Beginner",0,currentDateTimeString);
-                            database.collection("users").add(myUser);
-                            updateUI(user);
+                            final FirebaseUser user = mAuth.getCurrentUser();
+                            final String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+                            database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if(task.isSuccessful()){
+                                        if(task.getResult().isEmpty()){
+                                            MyUser myUser = new MyUser(user.getDisplayName(), user.getUid(),"Beginner",0,currentDateTimeString);
+                                            database.collection("users").add(myUser);
+                                        }
+                                        updateUI(user);
+                                    }
+                                }
+                            });
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("pttt", "signInWithCredential:failure", task.getException());
@@ -155,23 +165,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        //        //        try {
-////            GoogleSignInAccount account = result.getgetResult(ApiException.class);
-////
-////            // Signed in successfully, show authenticated UI.
-////            updateUI(account);
-////        } catch (ApiException e) {
-////            // The ApiException status code indicates the detailed failure reason.
-////            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-////            Log.w("pttt", "signInResult:failed code=" + e.getStatusCode());
-////        }
-//        if (result.isSuccess()) {
-//            // Signed in successfully, show authenticated UI.
-//            GoogleSignInAccount acct = result.getSignInAccount();
-//            updateUI(acct);
-//        } else {
-//            //signed out
-//        }
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             firebaseAuthWithGoogle(account.getIdToken()) ;

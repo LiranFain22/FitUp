@@ -15,6 +15,7 @@ import com.example.fitup.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -41,12 +42,17 @@ public class Fragment_UserStatus extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        BottomNavigationView navBar = getActivity().findViewById(R.id.Main_bottom_navigation);
+        navBar.setVisibility(View.VISIBLE);
 
         findViews(view);
 
         userStatus();
     }
 
+    /**
+     * this method fetching from firebase information about user status
+     */
     private void userStatus() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

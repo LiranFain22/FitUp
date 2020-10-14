@@ -4,7 +4,7 @@ public class Exercise {
 
     private String name;
     private int timer;
-    private boolean isFocused;
+    private boolean isFocused; // showing which exercise is focusing on
 
     public Exercise(){}
 

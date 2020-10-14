@@ -20,6 +20,7 @@ import com.example.fitup.JavaClasses.Workout;
 import com.example.fitup.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -47,7 +48,8 @@ public class Fragment_Favorite extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        BottomNavigationView navBar = getActivity().findViewById(R.id.Main_bottom_navigation);
+        navBar.setVisibility(View.VISIBLE);
         findViews(view);
 
         initFavoritesWorkouts();
@@ -55,6 +57,9 @@ public class Fragment_Favorite extends Fragment {
         adapterClickListener();
     }
 
+    /**
+     * this method fetching from firebase user's favorite workouts
+     */
     private void initFavoritesWorkouts() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -80,6 +85,9 @@ public class Fragment_Favorite extends Fragment {
         });
     }
 
+    /**
+     * this method moving from favorite fragment to workout fragment
+     */
     private void adapterClickListener() {
         mAdapter.setOnClickListener(new WorkoutAdapter.OnItemClickListener() {
             @Override

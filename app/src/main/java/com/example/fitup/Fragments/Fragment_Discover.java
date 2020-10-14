@@ -22,6 +22,7 @@ import com.firebase.ui.auth.data.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -39,6 +40,7 @@ public class Fragment_Discover extends Fragment {
     private WorkoutAdapter mAdapter;
     private  RecyclerView.LayoutManager mLayoutManager;
     private FirebaseFirestore database;
+    private ArrayList<Workout> workoutItemArrayList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,13 +52,38 @@ public class Fragment_Discover extends Fragment {
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setBottomNavigation();
+        findViews(view);
+        initWorkouts();
+        initRecyclerView();
+        setWorkoutListener();
+    }
 
-        database = FirebaseFirestore.getInstance();
+    /**
+     * this method make move from Discover fragment to workout fragment
+     */
+    private void setWorkoutListener() {
+        mAdapter.setOnClickListener(new WorkoutAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Bundle bundle = new Bundle();
+                String workoutName = workoutItemArrayList.get(position).Name;
+                bundle.putString("workout_name", workoutName);
+                navController.navigate(R.id.action_fragment_Discover_to_fragment_workout, bundle);
+            }
+        });
+    }
 
-        navController = Navigation.findNavController(view);
+    private void initRecyclerView() {
+        Fragment_RCV_discover.setHasFixedSize(true);
+        Fragment_RCV_discover.setLayoutManager(mLayoutManager);
+        Fragment_RCV_discover.setAdapter(mAdapter);
+    }
 
-        final ArrayList<Workout> workoutItemArrayList = new ArrayList<>();
-
+    /**
+     * this method fetching from firebase workouts that matching level's user
+     */
+    private void initWorkouts() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -80,24 +107,19 @@ public class Fragment_Discover extends Fragment {
                 }
             }
         });
+    }
 
-
+    private void findViews(@NonNull View view) {
+        database = FirebaseFirestore.getInstance();
+        navController = Navigation.findNavController(view);
         Fragment_RCV_discover = view.findViewById(R.id.Fragment_RCV_discover);
-        Fragment_RCV_discover.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
+        workoutItemArrayList = new ArrayList<>();
         mAdapter = new WorkoutAdapter(workoutItemArrayList);
+    }
 
-        Fragment_RCV_discover.setLayoutManager(mLayoutManager);
-        Fragment_RCV_discover.setAdapter(mAdapter);
-
-        mAdapter.setOnClickListener(new WorkoutAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Bundle bundle = new Bundle();
-                String workoutName = workoutItemArrayList.get(position).Name;
-                bundle.putString("workout_name", workoutName);
-                navController.navigate(R.id.action_fragment_Discover_to_fragment_workout, bundle);
-            }
-        });
+    private void setBottomNavigation() {
+        BottomNavigationView navBar = getActivity().findViewById(R.id.Main_bottom_navigation);
+        navBar.setVisibility(View.GONE);
     }
 }

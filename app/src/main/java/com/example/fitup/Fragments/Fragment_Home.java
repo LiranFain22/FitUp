@@ -1,11 +1,9 @@
 package com.example.fitup.Fragments;
 
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,8 +14,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.fitup.R;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -48,13 +45,14 @@ public class Fragment_Home extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        BottomNavigationView navBar = getActivity().findViewById(R.id.Main_bottom_navigation);
+        navBar.setVisibility(View.VISIBLE);
 
         findViews(view);
 
         changeTitleToUserName(Fragment_home_userTitle);
 
-        clickListener();
+        setListeners();
 
     }
 
@@ -63,7 +61,7 @@ public class Fragment_Home extends Fragment implements View.OnClickListener {
         fragment_home_userTitle.setText("Hi " + user.getDisplayName());
     }
 
-    private void clickListener() {
+    private void setListeners() {
         Fragment_home_LAY__scheduleWorkouts.setOnClickListener(this);
         Fragment_home_LAY__chooseRandom.setOnClickListener(this);
         Fragment_home_LAY__discover.setOnClickListener(this);

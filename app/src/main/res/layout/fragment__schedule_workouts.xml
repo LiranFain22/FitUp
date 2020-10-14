@@ -24,24 +24,34 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
+        <RelativeLayout
+            android:id="@+id/fragment_ScheduleWorkouts_Relative_chooseWorkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_background"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/fragment_ScheduleWorkouts_LBL_chooseWorkoutTitle"
+            android:layout_alignStart="@+id/fragment_ScheduleWorkouts_LBL_chooseWorkoutTitle"
+            android:layout_alignEnd="@+id/fragment_ScheduleWorkouts_LBL_chooseWorkoutTitle"
+            >
         <Spinner
             android:id="@+id/fragment_ScheduleWorkouts_Spinner_chooseWorkout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_ScheduleWorkouts_LBL_chooseWorkoutTitle"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"/>
+            android:backgroundTintMode="src_atop"
+            android:backgroundTint="@color/colorPrimary"/>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/Fragment_scheduleWorkouts_LBL_chosenDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_ScheduleWorkouts_Spinner_chooseWorkout"
+            android:layout_below="@+id/fragment_ScheduleWorkouts_Relative_chooseWorkout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:text="Choose Date:"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"/>
 
         <com.google.android.material.button.MaterialButton
@@ -52,17 +62,19 @@
             android:layout_centerHorizontal="true"
             android:text="Select Date"
             android:layout_marginTop="20dp"
-            app:cornerRadius="50dp" />
+            app:cornerRadius="50dp"
+            android:backgroundTint="@color/colorLightBlue" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Fragment_ScheduleWorkouts_BTN_createEvent"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="90dp"
             android:layout_below="@+id/Fragment_scheduleWorkouts_BTN_chooseDate"
             android:layout_centerHorizontal="true"
+            android:visibility="invisible"
             android:layout_marginTop="50dp"
             android:text="Create"
-            app:cornerRadius="50dp" />
+            app:cornerRadius="70dp" />
 
 
 

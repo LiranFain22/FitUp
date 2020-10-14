@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.Fragment_WaterUp">
 
     <RelativeLayout
@@ -10,19 +11,35 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/Fragment_WaterUp_LBL_pickReminderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            android:text="Pick Reminder interval:"
+            android:textColor="@android:color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/Fragment_WaterUp_LBL_countdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/Fragment_WaterUp_BTN_set30MinButton"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
             android:text="00:00"
             android:textColor="@android:color/black"
-            android:textSize="60sp"/>
+            android:textSize="40sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Fragment_WaterUp_BTN_setButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
+            app:cornerRadius="50dp"
             android:layout_below="@+id/Fragment_WaterUp_LBL_countdown"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
@@ -44,9 +61,9 @@
             android:id="@+id/Fragment_WaterUp_BTN_set20MinButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Fragment_WaterUp_BTN_setButton"
+            android:layout_below="@+id/Fragment_WaterUp_LBL_pickReminderTitle"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorLightBlue"
             android:layout_toEndOf="@+id/Fragment_WaterUp_BTN_setButton"
             android:text="20 MIN" />
 
@@ -54,8 +71,9 @@
             android:id="@+id/Fragment_WaterUp_BTN_set30MinButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Fragment_WaterUp_BTN_setButton"
-            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorLightBlue"
+
+            android:layout_below="@+id/Fragment_WaterUp_LBL_pickReminderTitle"
             android:layout_toStartOf="@+id/Fragment_WaterUp_BTN_set20MinButton"
             android:text="30 MIN" />
 
@@ -63,10 +81,11 @@
             android:id="@+id/Fragment_WaterUp_BTN_set60MinButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Fragment_WaterUp_BTN_setButton"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
+            android:layout_below="@+id/Fragment_WaterUp_LBL_pickReminderTitle"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="17dp"
             android:layout_toStartOf="@+id/Fragment_WaterUp_BTN_set30MinButton"
+            android:backgroundTint="@color/colorLightBlue"
             android:text="60 MIN" />
 
 

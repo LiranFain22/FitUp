@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/Fragment_home_scheduleWorkouts"
             android:layout_alignParentBottom="true"
-            android:text="schedule Workouts"
+            android:text="schedule"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="9sp"

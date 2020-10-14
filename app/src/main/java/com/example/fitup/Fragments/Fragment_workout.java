@@ -26,6 +26,7 @@ import com.example.fitup.JavaClasses.Workout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -71,14 +72,19 @@ public class Fragment_workout extends Fragment {
 
         String workout_name = getArguments().getString("workout_name");
 
+        BottomNavigationView navBar = getActivity().findViewById(R.id.Main_bottom_navigation);
+        navBar.setVisibility(View.GONE);
+
         findViews(view);
 
         initWorkout(view, workout_name);
 
-
         return  view;
     }
 
+    /**
+     * this method fetching from firebase list of workout
+     */
     private void initWorkout(final View view, String workout_name) {
         database.collection("workouts").whereEqualTo("Name" , workout_name).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -133,6 +139,9 @@ public class Fragment_workout extends Fragment {
         });
     }
 
+    /**
+     * this method add workout to favorite's workouts of user by clicking 'heart' icon
+     */
     private void setFavoritesListener() {
         Fragment_IMG_iconFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,6 +206,12 @@ public class Fragment_workout extends Fragment {
 
     }
 
+    /**
+     * this method updating level's user
+     * default level - 'Beginner'
+     * after 10 workouts - level's user change to 'Advance'
+     * after 20 workouts - level's user change to 'Expert'
+     */
     private void updateLevelOfUser() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -220,6 +235,12 @@ public class Fragment_workout extends Fragment {
         });
     }
 
+    /**
+     * this method updating total workout's user
+     * default level - 'Beginner'
+     * after 10 workouts - level's user change to 'Advance'
+     * after 20 workouts - level's user change to 'Expert'
+     */
     private void updateTotalWorkouts() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         database.collection("users").whereEqualTo("uid", user.getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

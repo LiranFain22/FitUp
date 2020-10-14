@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.fitup.JavaClasses.FitUp;
 import com.example.fitup.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.Locale;
@@ -49,16 +50,24 @@ public class Fragment_WaterUp extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        BottomNavigationView navBar = getActivity().findViewById(R.id.Main_bottom_navigation);
+        navBar.setVisibility(View.GONE);
+
         findViews(view);
 
         setClickListenerButtonSet();
+
         setClickListenerButtonReset();
+
         setClickListenerButton_20_30_60();
 
         updateCountDownText();
 
     }
 
+    /**
+     * this method setting time interval by clicking on '20sec','30sec' and '60sec'
+     */
     private void setClickListenerButton_20_30_60() {
         Fragment_WaterUp_BTN_set20MinButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +95,9 @@ public class Fragment_WaterUp extends Fragment {
         });
     }
 
+    /**
+     * this method start time interval reminder by clicking on 'set' button
+     */
     private void setClickListenerButtonSet() {
         Fragment_WaterUp_BTN_setButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +111,9 @@ public class Fragment_WaterUp extends Fragment {
         });
     }
 
+    /**
+     * this method reset time interval reminder by clicking on 'reset' button
+     */
     private void setClickListenerButtonReset() {
         Fragment_WaterUp_BTN_resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,8 +177,7 @@ public class Fragment_WaterUp extends Fragment {
     }
 
 
-    /*-----------------------------Notification Methods - START--------------------------------------------*/
-
+    /*-----------------------------Notification Method--------------------------------------------*/
     public void sendOnChannel1(View view){
         Notification notification = new NotificationCompat.Builder(getContext(), FitUp.CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_fitup)
@@ -175,20 +189,6 @@ public class Fragment_WaterUp extends Fragment {
 
         notificationManager.notify(1, notification);
     }
-
-
-    public void sendOnChannel2(View view){
-        Notification notification = new NotificationCompat.Builder(getContext(), FitUp.CHANNEL_2_ID)
-                .setSmallIcon(R.drawable.ic_fitup)
-                .setContentTitle("FitUp")
-                .setContentText("Remember to DRINK water!")
-                .setPriority(NotificationCompat.PRIORITY_LOW)
-                .build();
-
-        notificationManager.notify(2, notification);
-    }
-
-    /*-----------------------------Notification Methods - END--------------------------------------------*/
 
     private void findViews(View view) {
         notificationManager = NotificationManagerCompat.from(getContext());
