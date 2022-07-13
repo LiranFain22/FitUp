@@ -15,5 +15,5 @@ Used to improve our fitness habits -
 
 ## Demo
 
-Insert gif or link to demo
+<img src="https://github.com/LiranFain22/FitUp/blob/master/preview_fitup.gif" width="250" height="500"/>
 
